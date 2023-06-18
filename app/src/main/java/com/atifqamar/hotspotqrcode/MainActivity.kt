@@ -42,14 +42,14 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, "Please allow nearby permission", Toast.LENGTH_LONG)
                             .show()
                     } else {
-                        createHotStop()
+                        enableHotspot()
                     }
                 } else {
                     if (it.key.equals("android.permission.ACCESS_FINE_LOCATION") && !it.value) {
                         Toast.makeText(this, "Please allow nearby permission", Toast.LENGTH_LONG)
                             .show()
                     } else {
-                        createHotStop()
+                        enableHotspot()
                     }
                 }
             }
@@ -78,8 +78,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun createHotStop() {
-        Log.d(TAG, "createHotStop()")
+    private fun enableHotspot() {
+        Log.d(TAG, "enableHotspot()")
         val apManager = APManager.getApManager(this)
         apManager.turnOnHotspot(this,
             { ssid, password ->
